@@ -85,9 +85,9 @@ export function finalIds(input: Input): Observable<string[]> {
                 contains = true
               }
             }
-            if (!contains) {
-              temp.push(restVersionInfo)
-            }
+          }
+          if (!contains) {
+            temp.push(restVersionInfo)
           }
         }
         value = temp
