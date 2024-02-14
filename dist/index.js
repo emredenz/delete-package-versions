@@ -40493,13 +40493,13 @@ function getActionInput() {
             ? (0, core_1.getInput)('package-version-ids').split(',')
             : [],
         owner: (0, core_1.getInput)('owner') ? (0, core_1.getInput)('owner') : github_1.context.repo.owner,
-        packageName: 'delete-deneme-image/test',
-        packageType: 'container',
+        packageName: (0, core_1.getInput)('package-name'),
+        packageType: (0, core_1.getInput)('package-type'),
         numOldVersionsToDelete: Number((0, core_1.getInput)('num-old-versions-to-delete')),
-        minVersionsToKeep: Number(1),
-        ignoreVersions: RegExp('^(0|[1-9]\\d*)\\.0\\.0$'),
+        minVersionsToKeep: Number((0, core_1.getInput)('min-versions-to-keep')),
+        ignoreVersions: RegExp((0, core_1.getInput)('ignore-versions')),
         deletePreReleaseVersions: (0, core_1.getInput)('delete-only-pre-release-versions').toLowerCase(),
-        token: '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',
+        token: (0, core_1.getInput)('token'),
         deleteUntaggedVersions: (0, core_1.getInput)('delete-only-untagged-versions').toLowerCase()
     });
 }
