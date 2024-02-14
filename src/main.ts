@@ -27,6 +27,7 @@ function getActionInput(): Input {
 }
 
 function run(): Observable<boolean> {
+  console.log(`The deletion process has started`);
   try {
     return deleteVersions(getActionInput()).pipe(
       catchError(err => throwError(err))
