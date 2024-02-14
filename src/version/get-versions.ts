@@ -9,6 +9,7 @@ export interface RestVersionInfo {
   version: string
   created_at: string
   tagged: boolean
+  tags?: string[]
 }
 
 export interface RestQueryInfo {
@@ -70,6 +71,7 @@ export function getOldestVersions(
             id: version.id,
             version: version.name,
             created_at: version.created_at,
+            tags: version.metadata?.container?.tags,
             tagged
           }
         }),

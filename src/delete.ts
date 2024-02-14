@@ -76,6 +76,21 @@ export function finalIds(input: Input): Observable<string[]> {
           */
         value = value.filter(info => !input.ignoreVersions.test(info.version))
 
+          let temp: RestVersionInfo[] = []
+          for (let restVersionInfo of value) {
+              let contains = false
+              if (restVersionInfo.tags != null) {
+                  for (let tag of restVersionInfo.tags) {
+                      if (input.ignoreVersions.test(tag)) {
+                          contains = true
+                      }
+                  }
+                  if (!contains) {
+                      temp.push(restVersionInfo)
+                  }
+              }
+          }
+          value = temp
         if (input.deleteUntaggedVersions === 'true') {
           value = value.filter(info => !info.tagged)
         }
