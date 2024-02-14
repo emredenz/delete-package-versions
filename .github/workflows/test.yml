@@ -9,7 +9,7 @@ on: # rebuild any PRs and main branch changes
 
 permissions:
   packages: write
-  
+
 jobs:
 
   package: # make sure build/ci work properly
